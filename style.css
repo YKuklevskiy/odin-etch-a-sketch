@@ -20,3 +20,7 @@
     flex: 1;
     height: 32px;
 }
+
+.grid-cell-filled {
+    background-color: aqua;
+}

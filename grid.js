@@ -1,7 +1,9 @@
 const gridContainer = document.getElementById("grid-container");
 const GRID_SIZE = 16;
+
 const GRID_ROW_CLASS = "grid-row";
 const CELL_CLASS = "grid-cell";
+const CELL_FILLED_CLASS = "grid-cell-filled";
 
 const gridRowId = (i) => `grid-row-${i}`;
 const cellId = (i, j) => `cell-${i}-${j}`;
@@ -23,3 +25,18 @@ for (let i = 0; i < GRID_SIZE; i++) {
     }
     gridContainer.appendChild(gridRow);
 }
+
+function onCellHover(event) {
+    if(!event.target.classList.contains(CELL_CLASS))
+        return;
+
+    if(event.ctrlKey) {
+        event.target.classList.add(CELL_FILLED_CLASS);
+    }
+
+    if(event.shiftKey) {
+        event.target.classList.remove(CELL_FILLED_CLASS);
+    }
+}
+
+gridContainer.addEventListener("mouseover", onCellHover);
