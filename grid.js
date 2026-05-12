@@ -1,5 +1,5 @@
 const gridContainer = document.getElementById("grid-container");
-const GRID_SIZE = 16;
+const DEFAULT_GRID_SIZE = 16;
 
 const GRID_ROW_CLASS = "grid-row";
 const CELL_CLASS = "grid-cell";
@@ -35,7 +35,7 @@ function tearDownGrid() {
     }
 }
     
-let grid = generateGrid(GRID_SIZE);
+let grid = generateGrid(DEFAULT_GRID_SIZE);
 
 function onCellHover(event) {
     if(!event.target.classList.contains(CELL_CLASS))
@@ -57,3 +57,12 @@ gridSizeInput.addEventListener("input", () => {
     gridSizeInput.value = gridSizeInput.value > 100 ? 100 :
         gridSizeInput.value < 1 ? 1 : gridSizeInput.value;
 });
+
+function onRegenerateGrid(event) {
+    tearDownGrid();
+    const size = gridSizeInput.value;
+    grid = generateGrid(size);
+}
+
+const regenerateGridButton = document.getElementById("regenerate-grid-button");
+regenerateGridButton.addEventListener("click", onRegenerateGrid);
