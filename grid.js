@@ -29,6 +29,12 @@ function generateGrid(size) {
     return grid;
 }
 
+function tearDownGrid() {
+    while (gridContainer.lastElementChild) {
+        gridContainer.removeChild(gridContainer.lastElementChild);
+    }
+}
+    
 let grid = generateGrid(GRID_SIZE);
 
 function onCellHover(event) {
