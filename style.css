@@ -21,18 +21,21 @@ body {
 /* grid */
 #grid-container {
     padding: 8px;
-    width: 512px;
+    width: 540px;
+    height: 540px;
+    display: flex;
+    flex-direction: column;
 }
 
 .grid-row {
     display: flex;
+    flex: 1;
 }
 
 .grid-cell {
     background-color: navajowhite;
     border: 1px solid palevioletred;
     flex: 1;
-    height: 32px;
 }
 
 .grid-cell-filled {
