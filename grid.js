@@ -51,3 +51,9 @@ function onCellHover(event) {
 }
 
 gridContainer.addEventListener("mouseover", onCellHover);
+
+const gridSizeInput = document.getElementById("grid-size-input");
+gridSizeInput.addEventListener("input", () => {
+    gridSizeInput.value = gridSizeInput.value > 100 ? 100 :
+        gridSizeInput.value < 1 ? 1 : gridSizeInput.value;
+});
