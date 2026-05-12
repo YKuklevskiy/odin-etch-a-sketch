@@ -4,12 +4,22 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-main-bg: #84BEA2;
+    --color-cell: #D8E0EB;
+    --color-border: #C6D7E5;
+    --color-fill: rgb(64, 60, 194);
+    --color-text: #3b4a3b;
+}
+
 body {
+    color: var(--color-text);
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: var(--color-main-bg);
 }
 
 /* header */
@@ -33,13 +43,13 @@ body {
 }
 
 .grid-cell {
-    background-color: navajowhite;
-    border: 0.25px dotted palevioletred;
+    background-color: var(--color-cell);
+    border: 0.25px dotted var(--color-border);
     flex: 1;
 }
 
 .grid-cell-filled {
-    background-color: aqua;
+    background-color: var(--color-fill);
 }
 
 /* info */
