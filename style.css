@@ -34,7 +34,7 @@ body {
 
 .grid-cell {
     background-color: navajowhite;
-    border: 1px solid palevioletred;
+    border: 0.25px dotted palevioletred;
     flex: 1;
 }
 
