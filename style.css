@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* header */
+#header {
+    display: flex;
+    gap: 32px;
+}
+
 /* grid */
 #grid-container {
     padding: 8px;
@@ -23,4 +37,10 @@
 
 .grid-cell-filled {
     background-color: aqua;
+}
+
+/* info */
+#info {
+    text-align: center;
+    display: flex;
 }

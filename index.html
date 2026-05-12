@@ -7,9 +7,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="header">
+    <h1>Etch-a-Sketch</h1>
+    <div id="grid-generator">
+      <p>Regenerate a grid (choose size):</p>
+      <input id="grid-size-input" type="number" value="16">
+      <button id="regenerate-grid-button">▶︎</button>
+    </div>
+  </div>
   <div id="grid-container">
     
   </div>
+  <div id="info">
+    <div class="info-block">
+      <p class="info-block-header">Ctrl</p>
+      <p class="info-block-description">Hold Ctrl to paint on the grid. Make your dreams come to life!</p>
+    </div>
+    <div class="info-block">
+      <p class="info-block-header">Shift</p>
+      <p class="info-block-description">Hold Shift to erase the painted grid cells. Tear it down so you may do it again!</p>
+    </div>
+  </div>
+  
   <script src="grid.js"></script>
 </body>
 </html>
