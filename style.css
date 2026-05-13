@@ -80,11 +80,12 @@ h1 {
 /* grid */
 #grid-container {
     border: 2px solid var(--color-border);
-    width: 540px;
-    height: 540px;
+    width: min(70vh, 500px);
+    height: min(70vh, 500px);
     display: flex;
     flex-direction: column;
     margin: 8px;
+    flex-shrink: 0;
 }
 
 .grid-row {
