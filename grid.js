@@ -73,7 +73,6 @@ const ctrlBlock = document.getElementById("ctrl");
 const shiftBlock = document.getElementById("shift");
 const PRESSED_KEY_CLASS = "info-block-pressed";
 function onInfoKeyPressed(event, key, element, toPress) {
-    console.log(event);
     if(event.key !== key)
         return;
 
