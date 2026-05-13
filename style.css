@@ -30,11 +30,12 @@ body {
 
 /* grid */
 #grid-container {
-    padding: 8px;
+    border: 2px solid var(--color-border);
     width: 540px;
     height: 540px;
     display: flex;
     flex-direction: column;
+    margin: 8px;
 }
 
 .grid-row {
