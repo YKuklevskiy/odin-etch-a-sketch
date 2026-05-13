@@ -106,4 +106,16 @@ h1 {
 #info {
     text-align: center;
     display: flex;
+    gap: 64px;
+}
+
+.info-block {
+    width: 285px;
+    padding: 8px;
+    border-radius: 16px;
+    border: 2px dotted var(--color-border);
+}
+
+.info-block-header {
+    font-size: 32px;
 }
