@@ -57,6 +57,7 @@ gridSizeInput.addEventListener("input", () => {
     gridSizeInput.value = gridSizeInput.value > 100 ? 100 :
         gridSizeInput.value < 1 ? 1 : gridSizeInput.value;
 });
+gridSizeInput.addEventListener("focus", () => gridSizeInput.select());
 
 function onRegenerateGrid(event) {
     tearDownGrid();
