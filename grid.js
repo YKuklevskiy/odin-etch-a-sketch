@@ -67,3 +67,20 @@ function onRegenerateGrid(event) {
 
 const regenerateGridButton = document.getElementById("regenerate-grid-button");
 regenerateGridButton.addEventListener("click", onRegenerateGrid);
+
+const infoContainer = document.getElementById("info");
+const ctrlBlock = document.getElementById("ctrl");
+const shiftBlock = document.getElementById("shift");
+const PRESSED_KEY_CLASS = "info-block-pressed";
+function onInfoKeyPressed(event, key, element, toPress) {
+    console.log(event);
+    if(event.key !== key)
+        return;
+
+    toPress ? element.classList.add(PRESSED_KEY_CLASS) : element.classList.remove(PRESSED_KEY_CLASS); 
+}
+
+window.addEventListener("keydown", (event) => onInfoKeyPressed(event, "Control", ctrlBlock, true));
+window.addEventListener("keyup", (event) => onInfoKeyPressed(event, "Control", ctrlBlock, false));
+window.addEventListener("keydown", (event) => onInfoKeyPressed(event, "Shift", shiftBlock, true));
+window.addEventListener("keyup", (event) => onInfoKeyPressed(event, "Shift", shiftBlock, false));
