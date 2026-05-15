@@ -6,7 +6,7 @@
 
 :root {
     --color-main-bg: #84BEA2;
-    --color-cell: #D8E0EB;
+    --color-cell: rgb(216, 224, 235);
     --color-border: #C6D7E5;
     --color-fill: rgb(64, 60, 194);
     --color-text: #3b4a3b;

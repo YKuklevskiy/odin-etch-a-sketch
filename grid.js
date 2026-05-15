@@ -37,16 +37,61 @@ function tearDownGrid() {
     
 let grid = generateGrid(DEFAULT_GRID_SIZE);
 
+//https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties
+const documentComputedStyle = getComputedStyle(document.documentElement);
+const cellColor = arrayFromColor(documentComputedStyle.getPropertyValue("--color-cell"));
+const fillColor = arrayFromColor(documentComputedStyle.getPropertyValue("--color-fill"));
+const mixRatio = 0.2;
+
+function colorFromArray(arr) {
+    return `rgb(${arr[0]}, ${arr[1]}, ${arr[2]})`;
+}
+
+function arrayFromColor(color) {
+    // god help us all    
+    color = color.replaceAll("rgb", "")
+        .replaceAll("(", "")
+        .replaceAll(")", "")
+        .replaceAll(" ", "");
+    
+    return color.split(",").map(el => parseInt(el));
+}
+
+function mixColors(colorA, colorB, mixRatio) {
+    let mix = (a, b, ratio) => (a + b * mixRatio) / (1 + mixRatio);
+    return [
+        mix(colorA[0], colorB[0], mixRatio),
+        mix(colorA[1], colorB[1], mixRatio),
+        mix(colorA[2], colorB[2], mixRatio)
+    ];
+}
+
+function paintElement(element) {
+    let initColor; 
+    if(element.style.backgroundColor) {
+        initColor = arrayFromColor(element.style.backgroundColor);
+    }
+    else {
+        initColor = cellColor;
+    }
+    const finalColor = mixColors(initColor, fillColor, mixRatio);
+    element.style.backgroundColor = colorFromArray(finalColor);
+}
+
+function clearElement(element) {
+    element.style.backgroundColor = colorFromArray(cellColor);
+}
+
 function onCellHover(event) {
     if(!event.target.classList.contains(CELL_CLASS))
         return;
 
     if(event.ctrlKey) {
-        event.target.classList.add(CELL_FILLED_CLASS);
+        paintElement(event.target);
     }
 
     if(event.shiftKey) {
-        event.target.classList.remove(CELL_FILLED_CLASS);
+        clearElement(event.target);
     }
 }
 
